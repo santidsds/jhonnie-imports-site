@@ -1,11 +1,99 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+import logo from "../assets/logo.svg?url";
+import video1 from "../assets/black_label.mp4?url";
+import video2 from "../assets/gold_label.mp4?url";
+import BoxReveal from '../components/BoxReveal.svelte';
 ---
 
 <Layout>
-	<Welcome />
+    <header class="flex w-full justify-center h-[15vh] py-10 absolute top-0">
+        <img class="mr-[4px]" src="/src/assets/logo.svg" alt="Logo">
+    </header>
+
+    <div class="h-[1px] w-[73vw] mx-[249px] bg-amber-100 fixed left-0 mt-[15vh]"></div>
+    <section class="flex mx-63 h-[70vh] relative mt-[15vh]">
+        <leftside class=" flex justify-left w-full items-center">
+            <div class="flex flex-col">
+                <!-- HERE A SLOT THAT CONTAINS THE FOLLOW H1,H2,P TO SHOW. SHOULD SCROLL ONLY THIS -->
+                <BoxReveal boxColor={"rgb(254 243 199)"} client:load> <h1 id="hero_h1_1" class="text-amber-100 font-extrabold text-[50px] transition-all duration-200 ease-in-out ">GOLD LABEL</h1> </BoxReveal>
+                <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  id="hero_h2_1" class="text-amber-100 font-normal text-[25px] transition-all duration-100 ease-in">JOHNNIE WALKER GOLD LABEL 15 AÑOS</h1></BoxReveal> 
+                <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  id="hero_p_1" class="text-amber-100 opacity-75 text-[15px] font-serif w-xl mt-[1em] transition-all duration-75 ease-in-out">Johnnie Walker Black Label es un verdadero ícono. Una mezcla magistral  de whiskies de malta y de grano de toda Escocia, añejada durante al  menos 12 años. El resultado es un whisky clásico y atemporal con  profundidad y equilibrio de sabor. Tomalo solo, con hielo, o en un  cóctel en vaso alto.</h1></BoxReveal>
+            </div>
+        </leftside>
+
+        <div class="justify-right w-full relative">
+            <video id="video1" class="border-l-[1px] border-amber-100 w-full h-full object-cover transition-all duration-500 opacity-100 ease-out " src={video2} autoplay loop muted></video>
+            <video id="video2" class="border-l-[1px] border-amber-100 mt-[15vh] w-full h-full object-cover transition-opacity duration-500 opacity-100 pointer-events-none" src={video1} autoplay loop muted></video>
+        </div>
+    </section>
+    <div class="h-[1px] w-[73vw] mx-[249px] bg-amber-100 fixed left-0 mt-[-0.5px]"></div>
+    
+
+    <buttons class="w-full flex justify-center items-center h-[15vh] absolute bottom-0 ml-[-8px]">
+        <!-- TO DO: STYLE BUTTONS -->
+        <div class="flex">
+            <div class="flex items-center">
+                <div class="absolute w-[8px] bg-amber-100 h-[38px] ml-[-10px]"></div>
+                <a class="p-2 px-6 font-black text-amber-100 text-[15px] hidden ml-[-20px]">1400 UYU</a>
+                <a class="p-2 px-6 font-black text-amber-100 text-[15px] block mr-[10px]">1800 UYU</a>
+            </div>
+            <a class="p-2 px-6 bg-amber-100 font-black text-[15px] mr-[1px] border-[1px] border-transparent hover:text-amber-100 hover:cursor-pointer hover:bg-black hover:border-1 hover:border-amber-100">
+                COMPRAR
+            </a>
+        </div>
+    </buttons>
+    <div class="relative h-[100vh] mb-[-100vh]]">
+         </>
+
+            
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const image1 = document.getElementById('image1');
+            const video1 = document.getElementById('video1');
+            const video2 = document.getElementById('video2');
+            const h1 = document.getElementById('hero_h1_1');
+            const h2 = document.getElementById('hero_h2_1');
+            const p = document.getElementById('hero_p_1');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        h1.style.opacity = 1;
+                        h2.style.opacity = 1;
+                        p.style.opacity = 1;
+                    } else {
+                        h1.style.opacity = 0;
+                        h2.style.opacity = 0;
+                        p.style.opacity = 0;
+                    }
+                });
+            },{ 
+                rootMargin: '-340px',
+                threshold: 0.1 });
+            
+                const observerVideo1 = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video1.style.opacity = 1;
+                        video1.style.width = '100%';
+                    } else {
+                        video1.style.opacity = 0;
+                        video1.style.width = '0%';
+   
+
+                    }
+                });
+            },{ 
+                rootMargin: '-150px', // Different root margin for video1
+                threshold: 0.9
+            });
+
+            observer.observe(h1);
+            observerVideo1.observe(video1);
+        });
+    </script>
 </Layout>
