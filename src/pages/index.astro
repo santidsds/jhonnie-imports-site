@@ -8,30 +8,45 @@ import BoxReveal from '../components/BoxReveal.svelte';
 ---
 
 <Layout>
-    <header class="flex w-full justify-center h-[15vh] py-10 absolute top-0">
+    <header class="flex w-full justify-center h-[12.5vh] py-6 absolute top-0">
         <img class="mr-[4px]" src="/src/assets/logo.svg" alt="Logo">
     </header>
 
-    <div class="h-[1px] w-[73vw] mx-[249px] bg-amber-100 fixed left-0 mt-[15vh]"></div>
-    <section class="flex mx-63 h-[70vh] relative mt-[15vh]">
-        <leftside class=" flex justify-left w-full items-center">
+
+    <div class="h-[1px] w-[73vw] mx-[249px] bg-amber-100 fixed left-0 mt-[12.5vh]"></div>
+    <section class="flex mx-63 h-[75vh] relative mt-[15vh] ">
+        <leftside class=" flex justify-left h-[235vh] w-full">
             <div class="flex flex-col">
                 <!-- HERE A SLOT THAT CONTAINS THE FOLLOW H1,H2,P TO SHOW. SHOULD SCROLL ONLY THIS -->
-                <BoxReveal boxColor={"rgb(254 243 199)"} client:load> <h1 id="hero_h1_1" class="text-amber-100 font-extrabold text-[50px] transition-all duration-200 ease-in-out ">GOLD LABEL</h1> </BoxReveal>
-                <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  id="hero_h2_1" class="text-amber-100 font-normal text-[25px] transition-all duration-100 ease-in">JOHNNIE WALKER GOLD LABEL 15 AÑOS</h1></BoxReveal> 
-                <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  id="hero_p_1" class="text-amber-100 opacity-75 text-[15px] font-serif w-xl mt-[1em] transition-all duration-75 ease-in-out">Johnnie Walker Black Label es un verdadero ícono. Una mezcla magistral  de whiskies de malta y de grano de toda Escocia, añejada durante al  menos 12 años. El resultado es un whisky clásico y atemporal con  profundidad y equilibrio de sabor. Tomalo solo, con hielo, o en un  cóctel en vaso alto.</h1></BoxReveal>
+                <div class=" w-full mt-[23vh]">
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load> <h1 id="hero_h1_1" class="text-amber-100 font-extrabold text-[50px] transition-all duration-200 ease-in-out ">GOLD LABEL</h1> </BoxReveal>
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  id="hero_h2_1" class="text-amber-100 font-normal text-[25px] transition-all duration-100 ease-in">JOHNNIE WALKER GOLD LABEL 15 AÑOS</h1></BoxReveal> 
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  id="hero_p_1" class="text-amber-100 opacity-75 text-[15px] font-serif w-xl mt-[1em] transition-all duration-75 ease-in-out">Johnnie Walker Black Label es un verdadero ícono. Una mezcla magistral  de whiskies de malta y de grano de toda Escocia, añejada durante al  menos 12 años. El resultado es un whisky clásico y atemporal con  profundidad y equilibrio de sabor. Tomalo solo, con hielo, o en un  cóctel en vaso alto.</h1></BoxReveal>
+                </div>
+
+                <div class=" w-full mt-[68vh]">
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load> <h1 class="text-amber-100 font-extrabold text-[50px] transition-all duration-200 ease-in-out ">GOLD LABEL</h1> </BoxReveal>
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  class="text-amber-100 font-normal text-[25px] transition-all duration-100 ease-in">JOHNNIE WALKER GOLD LABEL 15 AÑOS</h1></BoxReveal> 
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  class="text-amber-100 opacity-75 text-[15px] font-serif w-xl mt-[1em] transition-all duration-75 ease-in-out">Johnnie Walker Black Label es un verdadero ícono. Una mezcla magistral  de whiskies de malta y de grano de toda Escocia, añejada durante al  menos 12 años. El resultado es un whisky clásico y atemporal con  profundidad y equilibrio de sabor. Tomalo solo, con hielo, o en un  cóctel en vaso alto.</h1></BoxReveal>
+                </div>
+                <div class=" w-full mt-[68vh]">
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load> <h1 class="text-amber-100 font-extrabold text-[50px] transition-all duration-200 ease-in-out ">GOLD LABEL</h1> </BoxReveal>
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  class="text-amber-100 font-normal text-[25px] transition-all duration-100 ease-in">JOHNNIE WALKER GOLD LABEL 15 AÑOS</h1></BoxReveal> 
+                    <BoxReveal boxColor={"rgb(254 243 199)"} client:load><h1  class="text-amber-100 opacity-75 text-[15px] font-serif w-xl mt-[1em] transition-all duration-75 ease-in-out">Johnnie Walker Black Label es un verdadero ícono. Una mezcla magistral  de whiskies de malta y de grano de toda Escocia, añejada durante al  menos 12 años. El resultado es un whisky clásico y atemporal con  profundidad y equilibrio de sabor. Tomalo solo, con hielo, o en un  cóctel en vaso alto.</h1></BoxReveal>
+                </div>
             </div>
         </leftside>
 
-        <div class="justify-right w-full relative">
-            <video id="video1" class="border-l-[1px] border-amber-100 w-full h-full object-cover transition-all duration-500 opacity-100 ease-out " src={video2} autoplay loop muted></video>
-            <video id="video2" class="border-l-[1px] border-amber-100 mt-[15vh] w-full h-full object-cover transition-opacity duration-500 opacity-100 pointer-events-none" src={video1} autoplay loop muted></video>
+        <div class="justify-right w-full h-[300vh] relative items-center">
+            <video id="video1" class="border-l-[1px] border-amber-100 w-full h-[75vh] object-cover transition-all duration-300 opacity-100 ease-in snap-start" src={video2} autoplay loop muted></video>
+            <video id="video2" class="border-l-[1px] border-amber-100 mt-[20vh] w-full h-[75vh] object-cover transition-all duration-300 opacity-100 ease-in pointer-events-none snap-start" src={video1} autoplay loop muted></video>
+            <video id="video3" class="border-l-[1px] border-amber-100 mt-[20vh] w-full h-[75vh] object-cover transition-all duration-300 opacity-100 ease-in pointer-events-none snap-start " src={video1} autoplay loop muted></video>
         </div>
     </section>
-    <div class="h-[1px] w-[73vw] mx-[249px] bg-amber-100 fixed left-0 mt-[-0.5px]"></div>
+    <div class="h-[1px] w-[73vw] mx-[249px] bg-amber-100 fixed left-0 mt-[-25px]"></div>
     
 
-    <buttons class="w-full flex justify-center items-center h-[15vh] absolute bottom-0 ml-[-8px]">
+    <buttons class="w-full flex justify-center items-center h-[12.5vh] absolute bottom-0 ml-[-8px]">
         <!-- TO DO: STYLE BUTTONS -->
         <div class="flex">
             <div class="flex items-center">
@@ -44,56 +59,96 @@ import BoxReveal from '../components/BoxReveal.svelte';
             </a>
         </div>
     </buttons>
-    <div class="relative h-[100vh] mb-[-100vh]]">
-         </>
-
-            
-    </div>
+    
 
     <script>
+        
         document.addEventListener('DOMContentLoaded', () => {
             const image1 = document.getElementById('image1');
             const video1 = document.getElementById('video1');
             const video2 = document.getElementById('video2');
+            const video3 = document.getElementById('video3');
             const h1 = document.getElementById('hero_h1_1');
             const h2 = document.getElementById('hero_h2_1');
             const p = document.getElementById('hero_p_1');
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        h1.style.opacity = 1;
-                        h2.style.opacity = 1;
-                        p.style.opacity = 1;
-                    } else {
-                        h1.style.opacity = 0;
-                        h2.style.opacity = 0;
-                        p.style.opacity = 0;
-                    }
+                        
+
+            if (h1 && h2 && p) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            h1.style.opacity = '1';
+                            h2.style.opacity = '1';
+                            p.style.opacity = '1';
+                        } else {
+                            h1.style.opacity = '0';
+                            h2.style.opacity = '0';
+                            p.style.opacity = '0';
+                        }
+                    });
+                },{ 
+                    rootMargin: '-340px',
+                    threshold: 0.1 
                 });
-            },{ 
-                rootMargin: '-340px',
-                threshold: 0.1 });
-            
+                observer.observe(h1);
+            }
+
+            if (video1) {
                 const observerVideo1 = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        video1.style.opacity = 1;
-                        video1.style.width = '100%';
-                    } else {
-                        video1.style.opacity = 0;
-                        video1.style.width = '0%';
-   
-
-                    }
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video1.style.opacity = '1';
+                            video1.style.width = '100%';
+                        } else {
+                            video1.style.opacity = '0';
+                            video1.style.width = '0%';
+                        }
+                    });
+                },{ 
+                    rootMargin: '-150px', // Different root margin for video1
+                    threshold: 0.9
                 });
-            },{ 
-                rootMargin: '-150px', // Different root margin for video1
-                threshold: 0.9
-            });
+                observerVideo1.observe(video1);
+            }
 
-            observer.observe(h1);
-            observerVideo1.observe(video1);
+            if (video2) {
+                const observerVideo2 = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video2.style.opacity = '1';
+                            video2.style.width = '100%';
+                        } else {
+                            video2.style.opacity = '0';
+                            video2.style.width = '0%';
+                        }
+                    });
+                },{ 
+                    rootMargin: '-150px', // Different root margin for video2
+                    threshold: 0.6
+                });
+                observerVideo2.observe(video2);
+            }
+            if (video3) {
+                const observerVideo3 = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video3.style.opacity = '1';
+                            video3.style.width = '100%';
+                        } else {
+                            video3.style.opacity = '0';
+                            video3.style.width = '0%';
+                        }
+                    });
+                },{ 
+                    rootMargin: '-150px', // Different root margin for video2
+                    threshold: 0.6
+                });
+                observerVideo3.observe(video3);
+            }
+
+
         });
     </script>
+   
 </Layout>
